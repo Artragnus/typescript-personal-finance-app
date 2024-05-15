@@ -7,10 +7,13 @@ services:
       POSTGRES_USERNAME: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRESQL_DATABASE: postgres
+    ports:
+      - 5555:5432
     volumes:
       - db-data:/var/lib/postgresql/data
     networks:
       - app-networks
+
   back:
     build: ./back
     ports:
