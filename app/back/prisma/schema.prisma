@@ -18,4 +18,28 @@ model User {
   email     String   @unique
   name      String?
   password  String
+  income    Income[]
+  expenses  Expenses[]
+}
+
+model Income {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User @relation(fields: [userId], references: [id])
+  type        String
+  description String
+  source      String
+  value       Float
+  date        DateTime
+}
+
+model Expenses { 
+  id          String   @id @default(uuid())
+  userId      String
+  user        User @relation(fields: [userId], references: [id])
+  type        String
+  description String
+  source      String
+  value       Float
+  date        DateTime
 }
