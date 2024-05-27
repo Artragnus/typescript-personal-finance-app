@@ -30,6 +30,9 @@
     "start": "node build/server.js",
     "build": "tsup src --out-dir build"
   },
+  "prisma": {
+    "seed": "npx ts-node ./prisma/seed.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"

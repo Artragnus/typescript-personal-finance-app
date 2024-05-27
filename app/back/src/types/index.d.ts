@@ -8,3 +8,8 @@ type User = {
   email: string;
   password: string;
 };
+
+type Category = {
+  id: Int;
+  name: string;
+};

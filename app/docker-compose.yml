@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_USERNAME: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRESQL_DATABASE: postgres
+      POSTGRESQL_DB: postgres
     ports:
       - 5555:5432
     volumes:
@@ -20,7 +20,7 @@ services:
       - 3000:3000
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/postgres?schema=public
-    command: /bin/sh -c "npx prisma migrate deploy && npm start"
+    command: /bin/sh -c "npx prisma migrate deploy && npx prisma db seed && npm start"
     networks:
       - app-networks
 volumes:
