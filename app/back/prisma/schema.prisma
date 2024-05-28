@@ -26,20 +26,19 @@ model Income {
   id          String   @id @default(uuid())
   userId      String
   user        User @relation(fields: [userId], references: [id])
-  type        String
+  category    String
   description String
   source      String
   value       Float
-  date        DateTime
+  date        DateTime @default(now())
 }
-
 model Expenses { 
   id          String   @id @default(uuid())
   userId      String
   user        User @relation(fields: [userId], references: [id])
-  type        String
+  category    String
   description String
   source      String
   value       Float
-  date        DateTime
+  date        DateTime @default(now())
 }

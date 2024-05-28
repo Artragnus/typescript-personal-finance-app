@@ -5,9 +5,8 @@ import {
   userAuthMiddleware,
   userLoginMiddleware,
 } from "./middlewares/user";
-import { recordIncome } from "./controllers/income";
-("");
-import { recordIncomeMiddleware } from "./middlewares/income";
+import { recordExpenseMiddleware } from "./middlewares/expenses";
+import { recordExpense } from "./controllers/expenses";
 export const route = express();
 
 route.post("/signup", createUserMiddleware, createUser);
@@ -15,4 +14,4 @@ route.post("/login", userLoginMiddleware, userLogin);
 
 route.use(userAuthMiddleware);
 
-route.post("/record-income", recordIncomeMiddleware, recordIncome);
+route.post("/record-expense", recordExpenseMiddleware, recordExpense);
