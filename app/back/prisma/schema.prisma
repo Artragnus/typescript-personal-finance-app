@@ -22,23 +22,37 @@ model User {
   expenses  Expenses[]
 }
 
+model Category {
+  id  Int @id @default(autoincrement())
+  name String
+  income Income[]
+  expenses Expenses[]
+}
+
 model Income {
   id          String   @id @default(uuid())
   userId      String
   user        User @relation(fields: [userId], references: [id])
-  category    String
-  description String
+  categoryId  Int
+  category    Category @relation(fields: [categoryId], references: [id])
+  description String?
   source      String
-  value       Float
+  value       Int
   date        DateTime @default(now())
 }
+
+
 model Expenses { 
   id          String   @id @default(uuid())
   userId      String
   user        User @relation(fields: [userId], references: [id])
-  category    String
-  description String
+  categoryId Int
+  category    Category @relation(fields: [categoryId], references: [id])
+  description String?
   source      String
-  value       Float
+  value       Int
   date        DateTime @default(now())
 }
+
+
+

@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import prisma from "../database/connection";
-import { createUserSchema } from "../schemas/user";
 import bcrpyt from "bcrypt";
 import * as jwt from "jsonwebtoken";
 async function createUser(req: Request, res: Response) {
