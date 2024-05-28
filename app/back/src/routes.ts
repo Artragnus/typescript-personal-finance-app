@@ -20,3 +20,4 @@ route.use(userAuthMiddleware);
 route.post("/record-income", recordIncomeMiddleware, recordIncome);
 route.post("/record-expense", recordExpenseMiddleware, recordExpense);
 route.get("/list-incomes", listIncomes);
+route.get("/list-expenses", listIncomes);

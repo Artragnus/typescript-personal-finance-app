@@ -2,14 +2,14 @@ import { Response, Request } from "express";
 import prisma from "../database/connection";
 
 const recordIncome = async (req: Request, res: Response) => {
-  const { amount, description, date, type, source } = req.body;
+  const { value, description, date, category, source } = req.body;
 
   try {
     await prisma.income.create({
       data: {
-        value: amount,
+        value,
         description,
-        type,
+        category,
         date,
         source,
         user: {

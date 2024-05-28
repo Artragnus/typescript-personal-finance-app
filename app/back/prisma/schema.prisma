@@ -19,14 +19,14 @@ model User {
   name      String?
   password  String
   income    Income[]
-  expenses  Expenses[]
+  expenses  Expense[]
 }
 
 model Category {
   id  Int @id @default(autoincrement())
   name String
   income Income[]
-  expenses Expenses[]
+  expenses Expense[]
 }
 
 model Income {
@@ -42,11 +42,11 @@ model Income {
 }
 
 
-model Expenses { 
+model Expense { 
   id          String   @id @default(uuid())
   userId      String
   user        User @relation(fields: [userId], references: [id])
-  categoryId Int
+  categoryId  Int
   category    Category @relation(fields: [categoryId], references: [id])
   description String?
   source      String

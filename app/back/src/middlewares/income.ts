@@ -1,13 +1,12 @@
+import { recordIncomeSchema } from "../schemas/income";
 import { Request, Response, NextFunction } from "express";
-import { recordExpenseSchema } from "../schemas/expenses";
-
-const recordExpenseMiddleware = async (
+const recordIncomeMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const validatedBodyRequest = recordExpenseSchema.parse(req.body);
+    const validatedBodyRequest = recordIncomeSchema.parse(req.body);
     if (!validatedBodyRequest) {
       return res.status(400).json({ message: "Invalid request" });
     }
@@ -17,4 +16,4 @@ const recordExpenseMiddleware = async (
   next();
 };
 
-export { recordExpenseMiddleware };
+export { recordIncomeMiddleware };
