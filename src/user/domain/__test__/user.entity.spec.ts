@@ -1,7 +1,7 @@
 import { User } from "../user.entity";
 
-describe("User unit test", () => {
-  describe("User constructor test", () => {
+describe("User Unit Tests", () => {
+  describe("User Constructor", () => {
     it("should create a user instance", () => {
       const user = new User({
         name: "Vinicius",
@@ -12,6 +12,7 @@ describe("User unit test", () => {
       expect(user).toHaveProperty("password");
       expect(user.name).toBe("Vinicius");
     });
+
     it("should rename user", () => {
       const user = new User({
         name: "Vinicius",
