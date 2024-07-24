@@ -1,6 +1,6 @@
 import { FieldsErrors } from "./validator-field-interface";
 export class EntityValidationError extends Error {
-  constructor(public errors: FieldsErrors, message: "Validation Error") {
+  constructor(public errors: FieldsErrors, message = "Validation Error") {
     super(message);
   }
 
