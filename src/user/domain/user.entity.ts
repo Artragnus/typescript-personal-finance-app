@@ -1,3 +1,6 @@
+import { EntityValidationError } from "../../shared/domain/validators/validation-error";
+import { UserValidatorFactory } from "./user.validator";
+
 export type UserConstructorProps = {
   user_id?: string;
   name: string;
@@ -29,7 +32,17 @@ export class User {
 
   static create(props: CreateUserCommand): User {
     const user = new User(props);
+    User.validate(user);
     return user;
+  }
+
+
+  static validate(entity: User) {
+    const validator = UserValidatorFactory.create();
+    const isValid = validator.validate(entity);
+    if (!isValid) {
+      throw new EntityValidationError(validator.errors);
+    }
   }
 
   changeName(name: string): void {

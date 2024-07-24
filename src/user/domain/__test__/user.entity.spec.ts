@@ -1,3 +1,4 @@
+import { EntityValidationError } from "../../../shared/domain/validators/validation-error";
 import { User } from "../user.entity";
 
 describe("User Unit Tests", () => {
@@ -21,6 +22,20 @@ describe("User Unit Tests", () => {
       });
       user.changeName("Joao");
       expect(user.name).toBe("Joao");
+    });
+  });
+
+  describe("User Create Command", () => {
+    it("should throw error when name is empty", () => {
+      try {
+        const user = User.create({
+          name: "",
+          password: "123",
+          email: "",
+        });
+      } catch (err) {
+        console.log(err);
+      }
     });
   });
 });
